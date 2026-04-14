@@ -172,20 +172,21 @@ function finishTest(){
     if(ans && parseInt(ans.value) === q.c) score++;
   });
 
-  const percent = Math.round((score / questions.length) * 100);
-  let level = "Beginner";
+ let level = "";
 
-  if(percent >= 90) level = "Upper-Intermediate";
-  else if(percent >= 75) level = "Intermediate";
-  else if(percent >= 55) level = "Pre-Intermediate";
-  else if(percent >= 35) level = "Elementary";
+if (score <= 15) level = "Beginner";
+else if (score <= 25) level = "Elementary";
+else if (score <= 32) level = "Pre-Intermediate";
+else if (score <= 45) level = "Intermediate";
+else if (score <= 54) level = "Upper-Intermediate";
+else level = "IELTS";
 
   document.getElementById("test").style.display = "none";
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML = `
     <div class="result">
       <h2>Your Result</h2>
-      <p>Score: ${percent}%</p>
+    <p>Correct answers: ${score} / ${questions.length}</p>
       <p><strong>Level: ${level}</strong></p>
     </div>`;
 }
