@@ -54,23 +54,19 @@ button:hover {
   </div>
 
   <!-- LC Name -->
-  <h1 style="margin-bottom:10px;">Focus Learning Center</h1>
-
+  <h1 style="margin-bottom:10px;">Donish learning center</h1>
+  
   <p>Enter your name to begin:</p>
   <input type="text" id="studentName" style="width:100%; padding:10px;">
   <br><br>
   <button onclick="startTest()">Start Test</button>
 </div>
 
-
-
 <div class="container" id="test" style="display:none;"></div>
-
 <div class="container" id="result" style="display:none;"></div>
 
 <script>
 const questions = [
-  const questions = [
 {q:"Q1. What ___ you got in your bag today?", a:["has","have","does","do"], c:1},
 {q:"Q2. We eat fresh fruit with some ___ for dessert.", a:["onion","salt","butter","cream"], c:3},
 {q:"Q3. Paul and Lisa ___ lunch at the moment.", a:["eat","eats","are eating","is eating"], c:2},
@@ -154,9 +150,11 @@ function loadQuestions(){
 
   questions.forEach((q, i)=>{
     html += `<div class="question"><p>${i+1}. ${q.q}</p>`;
+    
     q.a.forEach((opt, idx)=>{
       html += `<label><input type="radio" name="q${i}" value="${idx}"> ${opt}</label><br>`;
     });
+    
     html += "</div>";
   });
 
